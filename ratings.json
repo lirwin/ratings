@@ -1,17 +1,32 @@
 [
     {
         "id": 1388534400000,
-        "author": "Pete Hunt",
-        "text": "Hey there!"
+        "author": "Jane Doe",
+        "name": "Santa's Hooch",
+        "brand": "Happy Hops",
+        "image": "images/beer-1.jpg",
+        "rating": 4,
+        "title": "Love this one!",
+        "text": "Smooth, great taste."
     },
     {
         "id": 1420070400000,
-        "author": "Paul O’Shannessy",
-        "text": "React is *great*!"
+        "author": "Lisa Irwin",
+        "name": "Rudolph's Revenge",
+        "brand": "Happy Hops",
+        "image": "images/beer-2.jpg",
+        "rating": 1,
+        "title": "Worst yet.",
+        "text": "Tastes like Santa's socks."
     },
     {
         "id": 1449424205433,
-        "author": "Lisa Irwin",
-        "text": "React **Rocks!**"
+        "author": "Mrs. Claus",
+        "name": "Sleighbells Are Ring'n",
+        "brand": "Happy Hops",
+        "image": "images/beer-3.jpg",
+        "rating": 3,
+        "title": "Calls to Me",
+        "text": "Goes down well."
     }
 ]

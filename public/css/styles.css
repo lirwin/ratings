@@ -1,0 +1,43 @@
+.rating .item-image {
+    float: left;
+    margin-right: 20px;
+}
+
+.rating h2.item-name {
+   font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.rating h2.item-name .item-brand {
+    font-size: 14px;
+}
+
+.rating h2.item-name .item-brand a {
+    color: brown;
+}
+
+.rating h2.item-name .item-brand a:hover {
+    text-decoration: none;
+}
+
+.rating h3.item-brand {
+    font-size: 16px;
+
+}
+.rating h4 {
+    font-size: 12px;
+    color: darkblue;
+}
+
+.rating img {
+    width: 140px;
+    height: 140px
+}
+
+.rating .item-content {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}

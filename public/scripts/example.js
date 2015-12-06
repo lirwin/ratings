@@ -38,13 +38,19 @@ var Rating = React.createClass({
 
     return (
       <div className="rating">
-        <h2 className="ratingAuthor">
-          {this.props.author}
-        </h2>
-        <h4>
-          Posted on: {date.toString()}
-        </h4>
-        <span dangerouslySetInnerHTML={this.rawMarkup()} />
+        <div className="item-image">
+          <img src={this.props.image} />
+        </div>
+        <div className="item-content">
+          <h2 className="item-name">
+            {this.props.name} <span className="item-brand">made by <a href='' >{this.props.brand}</a></span>
+          </h2>
+          <h4>
+            Posted on: {date.toString()}
+          </h4>
+          <span dangerouslySetInnerHTML={this.rawMarkup()} />
+        </div>
+        <div className="clear"></div>
       </div>
     );
   }
@@ -108,7 +114,13 @@ var RatingList = React.createClass({
   render: function() {
     var ratingNodes = this.props.data.map(function(rating) {
       return (
-        <Rating author={rating.author} key={rating.id} id={rating.id}>
+        <Rating key={rating.id}
+                id={rating.id}
+                image={rating.image}
+                brand={rating.brand}
+                name={rating.name}
+                author={rating.author}
+            >
           {rating.text}
         </Rating>
       );

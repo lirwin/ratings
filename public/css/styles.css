@@ -1,6 +1,16 @@
+.rating {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
 .rating .item-image {
     float: left;
     margin-right: 20px;
+}
+
+.rating .item-image img {
+    display: block;
 }
 
 .rating h2.item-name {
@@ -40,4 +50,22 @@
 
 .clear {
     clear: both;
+}
+
+.rating .stars-container {
+
+}
+
+.rating .stars-container .big-star {
+    background: url(https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/customer-reviews/RYP_mobile_spritex2-v8._V316463287_.png) no-repeat;
+    width: 46px;
+    height: 45px;
+    background-position: -6px -387px;
+    outline-width: 0;
+    background-size: 326px 550px;
+    float: left;
+}
+
+.rating .clickable {
+    cursor: pointer;
 }

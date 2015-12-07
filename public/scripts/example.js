@@ -58,6 +58,8 @@ var Rating = React.createClass({
     var date = formatDate(this.props.postDate);
 
     var text = this.props.children ? <span dangerouslySetInnerHTML={this.rawMarkup()} /> : null;
+    var title = this.props.title ? <h3 className='title'>{this.props.title}</h3> : null;
+
     var posted = this.props.postDate ? <h4>Posted on: {date.toString()}</h4> : null;
 
     return (
@@ -147,6 +149,7 @@ var RatingList = React.createClass({
                 name={rating.name}
                 author={rating.author}
                 numStars={rating.numStars}
+                title={rating.title}
             >
           {rating.text}
         </Rating>

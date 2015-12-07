@@ -36,16 +36,16 @@ class StarList extends React.Component {
   }
 
   clickHandler(index) {
-    console.log(index);
+    //console.log(index);
 
     this.setState({active: index });
 
-    this.show
+    this.props.onClick();
 
   }
 
   mouseEnterHandler(index) {
-    console.log(index);
+    //console.log(index);
 
     this.setState({active: index });
 
@@ -86,6 +86,22 @@ class StarList extends React.Component {
 }
 
 class Rating extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showForm: false
+    }
+  }
+
+  onClickHandler() {
+    this.setState({
+          showForm: true
+        }
+    );
+
+  }
+
   rawMarkup() {
     var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
     return { __html: rawMarkup };
@@ -99,21 +115,25 @@ class Rating extends React.Component {
 
     var posted = this.props.postDate ? <h4>Posted on: {date.toString()}</h4> : null;
 
+    var imageStyle = this.props.image ? {
+      'backgroundImage': 'url(' + this.props.image + ')'
+    } : {};
+
+    var reviewForm = this.state.showForm ? <RatingForm onRatingSubmit={this.props.onRatingSubmit} /> : null;
+
     return (
       <div className="rating">
-        <div className="item-image">
-          <img src={this.props.image} />
-        </div>
+        <div className="item-image"  style={imageStyle} />
         <div className="item-content">
           <h2 className="item-name">
             {this.props.name} <span className="item-brand">made by <a href='' >{this.props.brand}</a></span>
           </h2>
 
           {posted}
-          <StarList numStars={this.props.numStars} />
+          <StarList numStars={this.props.numStars} onClick={this.onClickHandler.bind(this)} />
           {title}
           {text}
-          <RatingForm onRatingSubmit={this.props.onRatingSubmit} />
+          {reviewForm}
         </div>
         <div className="clear"></div>
       </div>
@@ -247,19 +267,19 @@ class RatingForm extends React.Component {
   render() {
     return (
       <form className="ratingForm" onSubmit={this.handleSubmit.bind(this)}>
+        <textarea placeholder="Add a Review (Optional)"
+                  value={this.state.text}
+                  onChange={this.handleTextChange.bind(this)}
+            />
+
         <input
-          type="text"
-          placeholder="Headline for Your Review"
-          value={this.state.title}
-          onChange={this.handleTitleChange.bind(this)}
-        />
-        <input
-          type="text"
-          placeholder="Say something..."
-          value={this.state.text}
-          onChange={this.handleTextChange.bind(this)}
-        />
+            type="text"
+            placeholder="Headline for Your Review"
+            value={this.state.title}
+            onChange={this.handleTitleChange.bind(this)}
+            />
         <input type="submit" value="Post" />
+
       </form>
     );
   }

@@ -83,3 +83,21 @@
 .rating .clickable {
     cursor: pointer;
 }
+
+.rating textarea {
+    resize: both;
+
+}
+.rating input {
+    display: block;
+
+}
+.rating input[type='submit'] {
+    background: #ccc;
+    display: block;
+
+}
+.rating input[type='submit']:hover {
+    background: deepskyblue;
+
+}

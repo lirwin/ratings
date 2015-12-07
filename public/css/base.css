@@ -12,10 +12,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
 code {
   background-color: #f8f8f8;
   border: 1px solid #ddd;

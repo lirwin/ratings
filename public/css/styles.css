@@ -26,10 +26,6 @@
     color: brown;
 }
 
-.rating h2.item-name .item-brand a:hover {
-    text-decoration: none;
-}
-
 .rating h3.item-brand {
     font-size: 16px;
 
@@ -72,6 +68,11 @@
     outline-width: 0;
     background-size: 326px 550px;
     float: left;
+}
+
+.rating .stars-container.hover .big-star {
+    background-position: -51px -387px;
+
 }
 
 .rating .stars-container .big-star.yellow-star {

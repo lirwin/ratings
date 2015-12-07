@@ -7,6 +7,9 @@
  *
  * Credit:  Built this Demo using React Tutorial: Comments App
  * https://facebook.github.io/react/docs/tutorial.html
+ *
+ * Credit: images/stars=sprite.png
+ * from https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/customer-reviews/RYP_mobile_spritex2-v8._V316463287_.png
  */
 
 

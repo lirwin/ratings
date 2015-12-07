@@ -23,29 +23,35 @@ function formatDate(date) {
   return month + ' ' + day + ', ' + year;
 }
 
-
 class StarList extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      hover: false
+      active: -1 //index for highest active index in startNodes array, zero-based
     }
   }
-  mouseEnter() {
-    var starsEl = ReactDOM.findDOMNode(this.refs.stars);
 
-    this.setState({hover: true});
+  clickHandler(index) {
+    console.log(index);
 
-    if (starsEl.className.match('hover')) return;
+    this.setState({active: index });
 
-    starsEl.className = starsEl.className + ' hover';
+    this.show
 
   }
 
-  mouseLeave() {
-    this.setState({hover: false});
+  mouseEnterHandler(index) {
+    console.log(index);
+
+    this.setState({active: index });
+
   }
+
+  mouseLeaveHandler() {
+    this.setState({active: -1});
+  }
+
 
   render() {
     var starNodes = [];
@@ -53,18 +59,22 @@ class StarList extends React.Component {
     for (var i = 0; i < 5; i++) {
       var displayRating = i + 1;
 
-      var highlight = i < this.props.numStars ? 'yellow-star' : '';
+      var highlight = i < this.props.numStars ? 'highlight' : '';
+      var hover = i <= this.state.active ? 'hover' : '';
 
-      starNodes.push(<div className={"big-star rating-" + displayRating + " " + highlight} key={i}></div>);
-      //starNodes.push(<div className={`big-star rating-${displayRating} ${highlight}`} key={i}></div>);
+      starNodes.push(<div className={"big-star rating-" + displayRating + " " + highlight + " " + hover}
+                          key={i}
+                          onMouseEnter={this.mouseEnterHandler.bind(this, i)}
+                          onMouseLeave={this.mouseLeaveHandler.bind(this, i)}
+                          onClick={this.clickHandler.bind(this, i)}
+
+          >
+
+      </div>);
     }
 
     return (
-        <div className="stars-container"
-            onMouseEnter={this.mouseEnter.bind(this)}
-            onMouseLeave={this.mouseLeave.bind(this)}
-            ref="stars"
-            >
+        <div className="stars-container">
           {starNodes}
           <div className="clear"></div>
         </div>
@@ -97,7 +107,7 @@ class Rating extends React.Component {
           </h2>
 
           {posted}
-          <StarList numStars={this.props.numStars}></StarList>
+          <StarList numStars={this.props.numStars} />
           {title}
           {text}
           <RatingForm onRatingSubmit={this.props.onRatingSubmit} />

@@ -40,7 +40,7 @@ app.post('/api/ratings', function(req, res) {
     // treat Date.now() as unique-enough for our purposes.
     var newRating = {
       id: Date.now(),
-      author: req.body.author,
+      title: req.body.title,
       text: req.body.text
     };
     ratings.push(newRating);

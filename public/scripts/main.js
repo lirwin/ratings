@@ -100,7 +100,7 @@ class Rating extends React.Component {
           <StarList numStars={this.props.numStars}></StarList>
           {title}
           {text}
-
+          <RatingForm onRatingSubmit={this.props.onRatingSubmit} />
         </div>
         <div className="clear"></div>
       </div>
@@ -168,8 +168,7 @@ class RatingBox extends React.Component {
     return (
       <div className="ratingBox">
         <h1>My Beer Ratings</h1>
-        <RatingList data={this.state.data} />
-        <RatingForm onRatingSubmit={this.handleRatingSubmit.bind(this)} />
+        <RatingList data={this.state.data} onRatingSubmit={this.handleRatingSubmit.bind(this)}/>
       </div>
     );
   }
@@ -177,6 +176,7 @@ class RatingBox extends React.Component {
 
 class RatingList extends React.Component {
   render() {
+    var onRatingSubmit = this.props.onRatingSubmit;
     var ratingNodes = this.props.data.map(function(rating) {
       return (
         <Rating key={rating.id}
@@ -187,6 +187,7 @@ class RatingList extends React.Component {
                 author={rating.author}
                 numStars={rating.numStars}
                 title={rating.title}
+                onRatingSubmit={onRatingSubmit}
             >
           {rating.text}
         </Rating>
@@ -206,13 +207,13 @@ class RatingForm extends React.Component {
     super(props);
 
     this.state = {
-      author : '',
+      title : '',
       text: ''
     }
   }
 
-  handleAuthorChange(e) {
-    this.setState({author: e.target.value});
+  handleTitleChange(e) {
+    this.setState({title: e.target.value});
   }
 
   handleTextChange(e) {
@@ -221,13 +222,13 @@ class RatingForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    var author = this.state.author.trim();
+    var title = this.state.title.trim();
     var text = this.state.text.trim();
-    if (!text || !author) {
+    if (!text || !title) {
       return;
     }
-    this.props.onRatingSubmit({author: author, text: text});
-    this.setState({author: '', text: ''});
+    this.props.onRatingSubmit({title: title, text: text});
+    this.setState({title: '', text: ''});
   }
 
   render() {
@@ -235,9 +236,9 @@ class RatingForm extends React.Component {
       <form className="ratingForm" onSubmit={this.handleSubmit.bind(this)}>
         <input
           type="text"
-          placeholder="Your name"
-          value={this.state.author}
-          onChange={this.handleAuthorChange.bind(this)}
+          placeholder="Headline for Your Review"
+          value={this.state.title}
+          onChange={this.handleTitleChange.bind(this)}
         />
         <input
           type="text"

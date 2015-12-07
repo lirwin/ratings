@@ -7,10 +7,10 @@
 .rating .item-image {
     float: left;
     margin-right: 20px;
-}
-
-.rating .item-image img {
-    display: block;
+    width: 140px;
+    height: 140px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .rating h2.item-name {
@@ -33,11 +33,6 @@
 .rating h4 {
     font-size: 12px;
     color: darkblue;
-}
-
-.rating img {
-    width: 140px;
-    height: 140px
 }
 
 .rating .item-content {

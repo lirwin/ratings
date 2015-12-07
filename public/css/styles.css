@@ -53,7 +53,7 @@
 }
 
 .rating .stars-container {
-
+ margin-bottom: 15px;
 }
 
 .rating .stars-container .big-star {
@@ -64,6 +64,10 @@
     outline-width: 0;
     background-size: 326px 550px;
     float: left;
+}
+
+.rating .stars-container .big-star.yellow-star {
+    background-position: -96px -387px;
 }
 
 .rating .clickable {

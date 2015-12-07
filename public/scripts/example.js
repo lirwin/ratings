@@ -28,10 +28,12 @@ var StarList = React.createClass({
   render: function () {
     var starNodes = [];
 
-    for (var i = 0; i < this.props.numStars; i++) {
+    for (var i = 0; i < 5; i++) {
       var displayRating = i + 1;
 
-      starNodes.push(<div className="big-star rating-'  + displayRating + '" key={i}></div>);
+      var highlight = i < this.props.numStars ? 'yellow-star' : '';
+
+      starNodes.push(<div className={"big-star rating-" + displayRating + " " + highlight} key={i}></div>);
     }
 
     return (
@@ -57,7 +59,6 @@ var Rating = React.createClass({
 
     var text = this.props.children ? <span dangerouslySetInnerHTML={this.rawMarkup()} /> : null;
     var posted = this.props.postDate ? <h4>Posted on: {date.toString()}</h4> : null;
-    var rating = this.props.numStars ? <StarList numStars={this.props.numStars}></StarList> : null;
 
     return (
       <div className="rating">
@@ -68,9 +69,12 @@ var Rating = React.createClass({
           <h2 className="item-name">
             {this.props.name} <span className="item-brand">made by <a href='' >{this.props.brand}</a></span>
           </h2>
+
           {posted}
-          {rating}
+          <StarList numStars={this.props.numStars}></StarList>
+          {title}
           {text}
+
         </div>
         <div className="clear"></div>
       </div>

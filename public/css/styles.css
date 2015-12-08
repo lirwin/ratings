@@ -87,12 +87,22 @@
     display: block;
 
 }
-.rating input[type='submit'] {
+.rating input[type='submit'], .rating button {
     background: #ccc;
-    display: block;
+    display: inline-block;
 
 }
-.rating input[type='submit']:hover {
+
+.rating button {
+    background: red;
+
+}
+
+.rating input[type='submit'] {
+    margin-right: 20px;
+}
+
+.rating input[type='submit']:hover, .rating button:hover {
     background: deepskyblue;
 
 }

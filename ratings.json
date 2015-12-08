@@ -1,37 +1,35 @@
 [
     {
-        "id": 1388534400000,
+        "id": "1388534400000",
         "author": "Jane Doe",
         "name": "Santa's Hooch",
         "brand": "Happy Hops",
         "image": "images/beer-1.jpg",
-        "numStars": 4,
-        "title": "Love this one!",
-        "text": "Smooth, great taste.",
-        "postDate": 1388534400000
-
+        "numStars": "0",
+        "title": "",
+        "text": "",
+        "date": "1449561781417"
     },
     {
-        "id": 1420070400000,
+        "id": "1420070400000",
         "author": "",
         "name": "Rudolph's Revenge",
         "brand": "Happy Hops",
         "image": "images/beer-2.jpg",
-        "numStars": 0,
+        "numStars": "0",
         "title": "",
         "text": "",
-        "postDate": ""
+        "date": ""
     },
     {
-        "id": 1449424205433,
+        "id": "1449424205433",
         "author": "Mrs. Claus",
         "name": "Sleighbells Are Ring'n",
         "brand": "Happy Hops",
         "image": "images/beer-3.jpg",
-        "numStars": 3,
-        "title": "Calls to Me",
-        "text": "Goes down well.",
-        "postDate": 1449424205433
-
+        "numStars": "5",
+        "title": "",
+        "text": "",
+        "date": ""
     }
 ]

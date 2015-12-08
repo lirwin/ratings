@@ -5,10 +5,10 @@
         "name": "Santa's Hooch",
         "brand": "Happy Hops",
         "image": "images/beer-1.jpg",
-        "numStars": "0",
+        "numStars": "2",
         "title": "",
         "text": "",
-        "date": "1449561781417"
+        "date": "1449563152297"
     },
     {
         "id": "1420070400000",
@@ -16,10 +16,10 @@
         "name": "Rudolph's Revenge",
         "brand": "Happy Hops",
         "image": "images/beer-2.jpg",
-        "numStars": "0",
+        "numStars": "1",
         "title": "",
         "text": "",
-        "date": ""
+        "date": "1449563231761"
     },
     {
         "id": "1449424205433",
@@ -27,9 +27,9 @@
         "name": "Sleighbells Are Ring'n",
         "brand": "Happy Hops",
         "image": "images/beer-3.jpg",
-        "numStars": "5",
+        "numStars": "2",
         "title": "",
         "text": "",
-        "date": ""
+        "date": "1449563140065"
     }
 ]

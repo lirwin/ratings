@@ -128,7 +128,7 @@ class Rating extends React.Component {
     var text = this.props.children ? <span dangerouslySetInnerHTML={this.rawMarkup()} /> : null;
     var title = this.props.title ? <h3 className='title'>{this.props.title}</h3> : null;
 
-    var posted = this.props.date ? <h4>Posted on: {date.toString()}</h4> : null;
+    var posted = this.props.date ? <h4>Posted on {date.toString()}</h4> : null;
 
     var imageStyle = this.props.image ? {
       'backgroundImage': 'url(' + this.props.image + ')'
@@ -308,7 +308,9 @@ class RatingForm extends React.Component {
     this.props.hideForm();
   }
 
-  cancelSubmit(){
+  cancelSubmit(e){
+    e.preventDefault();
+
     this.setState({title: '', text: ''});
 
     this.props.onRatingSubmit({
@@ -317,12 +319,10 @@ class RatingForm extends React.Component {
           id: this.props.id,
           numStars: '0',
           date: ''
-        }
-    );
+    });
 
-    setTimeout(function(){
-      this.props.hideForm();
-    }.bind(this), 0);
+    this.props.hideForm();
+
   }
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Rating   from './components/rating/rating.jsx';
+import Rating   from '../rating/rating.jsx';
 
 export default class RatingList extends React.Component {
     render() {

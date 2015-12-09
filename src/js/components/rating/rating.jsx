@@ -1,6 +1,6 @@
 import React from 'react';
-import StarList   from './components/star-list/star-list.jsx';
-import RatingForm          from './components/rating-form/rating-form.jsx';
+import StarList   from '../star-list/star-list.jsx';
+import RatingForm          from '../rating-form/rating-form.jsx';
 
 export default class Rating extends React.Component {
     constructor(props) {

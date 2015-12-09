@@ -1,5 +1,7 @@
 import React    from 'react';
-import RatingList         from './components/rating-list/rating-list.jsx';
+import $        from 'jquery';
+
+import RatingList         from '../rating-list/rating-list.jsx';
 
 export default class RatingBox extends React.Component {
     constructor(props) {
@@ -67,14 +69,15 @@ export default class RatingBox extends React.Component {
 
     componentDidMount() {
         this.loadRatingsFromServer.bind(this)();
-        setInterval(this.loadRatingsFromServer.bind(this), this.props.pollInterval);
+        //setInterval(this.loadRatingsFromServer.bind(this), this.props.pollInterval);
     }
+
 
     render() {
         return (
             <div className="ratingBox">
-                <h1>My Beer Ratings</h1>
-                <RatingList data={this.state.data} onRatingSubmit={this.handleRatingSubmit.bind(this)}/>
+            <h1>My Beer Ratings</h1>
+            <RatingList data={this.state.data} onRatingSubmit={this.handleRatingSubmit.bind(this)}/>
             </div>
         );
     }

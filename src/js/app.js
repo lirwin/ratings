@@ -14,36 +14,19 @@
 
 
 import React            from 'react';
+import ReactDOM           from 'react-dom';
+
 import Reflux           from 'reflux';
 import {default as mix} from 'react-mixin';
 import Router, {Route, DefaultRoute, RouteHandler} from 'react-router';
 import { history } from 'react-router/lib/HashHistory';
 import 'babel/polyfill';
 
-
 import RatingBox         from './components/rating-box/rating-box.jsx';
 
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
 
-        };
-    }
-
-    componentDidMount() {
-
-    }
-
-    render() {
-        return (
-            <RatingBox   component={RatingBox}
-                         url="/api/ratings"
-                         pollInterval={2000}
-            />
-        )
-    }
-}
-
-React.render(<App />, document.body);
+ReactDOM.render(
+    <RatingBox url="/api/ratings" pollInterval={2000} />,
+    document.getElementById('content')
+);

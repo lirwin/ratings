@@ -1,7 +1,16 @@
 import React    from 'react';
+import ReactDOM from 'react-dom';
 import $        from 'jquery';
 import _        from 'underscore';
 import RatingList         from '../rating-list/rating-list.jsx';
+
+import ReactSelectize from 'react-selectize';
+
+import AddBeer        from '../add-beer/add-beer.jsx';
+
+var MultiSelect = ReactSelectize.MultiSelect;
+
+var findDOMNode = ReactDOM.findDOMNode;
 
 export default class RatingBox extends React.Component {
     constructor(props) {
@@ -74,10 +83,14 @@ export default class RatingBox extends React.Component {
 
 
     render() {
+
         return (
-            <div className="ratingBox">
-            <h1>My Beer Ratings</h1>
-            <RatingList data={this.state.data} onRatingSubmit={this.handleRatingSubmit.bind(this)}/>
+            <div>
+                <AddBeer url='/api/beers'  />
+                <div className="ratingBox">
+                    <h1>My Beer Ratings</h1>
+                    <RatingList data={this.state.data} onRatingSubmit={this.handleRatingSubmit.bind(this)} />
+                </div>
             </div>
         );
     }

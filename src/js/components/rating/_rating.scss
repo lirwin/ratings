@@ -1,0 +1,46 @@
+.rating {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+
+  .item-image {
+    float: left;
+    margin-right: 20px;
+    width: 140px;
+    height: 140px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  h2.item-name {
+    font-size: 20px;
+    margin-bottom: 5px;
+
+    .item-brand {
+      font-size: 14px;
+
+      a {
+        color: brown;
+      }
+    }
+  }
+
+  h3.title {
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+
+  h4 {
+    font-size: 12px;
+    color: darkblue;
+  }
+
+  p {
+    line-height: 1em;
+    margin: 0px;
+  }
+
+  .item-content {
+    float: left;
+  }
+}

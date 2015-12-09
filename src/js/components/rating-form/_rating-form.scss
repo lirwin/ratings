@@ -1,0 +1,28 @@
+.ratingForm {
+
+  textarea {
+    resize: both;
+  }
+
+  input {
+    display: block;
+  }
+
+  input[type='submit'] {
+    margin-right: 20px;
+
+    &, .rating button {
+      background: #ccc;
+      display: inline-block;
+    }
+
+    &:hover, .rating button:hover {
+      background: deepskyblue;
+    }
+  }
+
+  button {
+    background: red;
+
+  }
+}

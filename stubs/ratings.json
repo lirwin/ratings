@@ -5,10 +5,10 @@
         "name": "Santa's Hooch",
         "brand": "Happy Hops",
         "image": "images/beer-1.jpg",
-        "numStars": "0",
-        "title": "",
-        "text": "",
-        "date": ""
+        "numStars": "3",
+        "title": "ho ho ho",
+        "text": "well well well",
+        "date": "1449648705863"
     },
     {
         "id": "1420070400000",
@@ -27,9 +27,9 @@
         "name": "Sleighbells Are Ring'n",
         "brand": "Happy Hops",
         "image": "images/beer-3.jpg",
-        "numStars": "0",
-        "title": "",
-        "text": "",
-        "date": ""
+        "numStars": "4",
+        "title": "se ya LOL!",
+        "text": "later",
+        "date": "1449648791805"
     }
 ]

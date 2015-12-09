@@ -65,8 +65,9 @@ gulp.task('serve', function() {
     var path = require('path');
     var bodyParser = require('body-parser');
 
-    var RATINGS_FILE = path.join(__dirname, 'ratings.json');
+    var RATINGS_FILE = path.join(__dirname, 'stubs/ratings.json');
 
+    var BEERS_FILE = path.join(__dirname, 'stubs/beers.json');
 
     app.use(require('connect-livereload')({
         port: lrport
@@ -77,6 +78,17 @@ gulp.task('serve', function() {
     app.use('/', express.static(path.join(__dirname, 'public')));
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
+
+    app.get('/api/beers', function(req, res) {
+        fs.readFile(BEERS_FILE, function(err, data) {
+            if (err) {
+                console.error(err);
+                process.exit(1);
+            }
+            res.setHeader('Cache-Control', 'no-cache');
+            res.json(JSON.parse(data));
+        });
+    });
 
     app.get('/api/ratings', function(req, res) {
         fs.readFile(RATINGS_FILE, function(err, data) {

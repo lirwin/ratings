@@ -1,0 +1,21 @@
+[
+  {
+    "id": "0",
+    "name": "Beer 1",
+    "brand": "Happy Hops",
+    "image": "images/beer-1.jpg"
+  },
+  {
+    "id": "1",
+    "author": "",
+    "name": "Beer 2",
+    "brand": "Happy Hops",
+    "image": "images/beer-2.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Beer 3",
+    "brand": "Happy Hops",
+    "image": "images/beer-3.jpg"
+  }
+]

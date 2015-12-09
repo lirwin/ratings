@@ -1,6 +1,7 @@
 import React from 'react';
 import StarList   from '../star-list/star-list.jsx';
 import RatingForm          from '../rating-form/rating-form.jsx';
+import marked from 'marked';
 
 export default class Rating extends React.Component {
     constructor(props) {
@@ -51,7 +52,7 @@ export default class Rating extends React.Component {
     }
 
     render() {
-        var date = this.props.date ? formatDate(parseInt(this.props.date, 10)) : null;
+        var date = this.props.date ? this.formatDate(parseInt(this.props.date, 10)) : null;
 
         var text = this.props.children ? <span dangerouslySetInnerHTML={this.rawMarkup()} /> : null;
         var title = this.props.title ? <h3 className='title'>{this.props.title}</h3> : null;
@@ -62,11 +63,13 @@ export default class Rating extends React.Component {
             'backgroundImage': 'url(' + this.props.image + ')'
         } : {};
 
-        var reviewForm = this.state.showForm ? <RatingForm id={this.props.id}
+        var review = this.state.showForm ? <RatingForm id={this.props.id}
                                                            onRatingSubmit={this.props.onRatingSubmit}
                                                            numStars={this.props.numStars}
                                                            hideForm={this.hideForm.bind(this)}
-            /> : null;
+                                                           title={this.props.title}
+                                                           text={this.props.text}
+                                            /> : <div>{title} {text}</div>;
 
         return (
             <div className="rating">
@@ -78,9 +81,9 @@ export default class Rating extends React.Component {
 
                     {posted}
                     <StarList numStars={this.props.numStars} onClick={this.onClickHandler.bind(this)} />
-                    {title}
-                    {text}
-                    {reviewForm}
+
+                    {review}
+
                 </div>
                 <div className="clear"></div>
             </div>

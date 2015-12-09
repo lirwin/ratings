@@ -14,6 +14,7 @@ export default class RatingList extends React.Component {
                         author={rating.author}
                         numStars={rating.numStars}
                         title={rating.title}
+                        text={rating.text}
                         onRatingSubmit={onRatingSubmit}
                         date={rating.date}
                     >

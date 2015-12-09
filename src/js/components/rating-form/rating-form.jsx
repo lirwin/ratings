@@ -5,8 +5,8 @@ export default class RatingForm extends React.Component {
         super(props);
 
         this.state = {
-            title : '',
-            text: ''
+            title : this.props.title,
+            text: this.props.text
         }
     }
 
@@ -24,7 +24,7 @@ export default class RatingForm extends React.Component {
         var text = this.state.text.trim();
 
         //this.props.onRatingSubmit({title: title, text: text});
-        this.setState({title: '', text: ''});
+        //this.setState({title: '', text: ''});
 
         var date = Date.now();
 
@@ -61,16 +61,17 @@ export default class RatingForm extends React.Component {
     render() {
         return (
             <form className="ratingForm" onSubmit={this.handleSubmit.bind(this)}>
-                <textarea placeholder="Rating Comments (Optional)"
-                      value={this.state.text}
-                      onChange={this.handleTextChange.bind(this)}
-                />
                 <input
                     type="text"
-                    placeholder="Headline for Your Rating"
+                    placeholder="Rating Headline (Optional)"
                     value={this.state.title}
                     onChange={this.handleTitleChange.bind(this)}
                     />
+                <textarea placeholder="Rating Comments (Optional)"
+                          value={this.state.text}
+                          onChange={this.handleTextChange.bind(this)}
+                    />
+
                 <input type="submit" value="Post" />
                 <button onClick={this.cancelSubmit.bind(this)}>Cancel</button>
             </form>

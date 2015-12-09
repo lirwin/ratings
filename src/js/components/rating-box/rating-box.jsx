@@ -1,6 +1,6 @@
 import React    from 'react';
 import $        from 'jquery';
-
+import _        from 'underscore';
 import RatingList         from '../rating-list/rating-list.jsx';
 
 export default class RatingBox extends React.Component {
@@ -69,7 +69,7 @@ export default class RatingBox extends React.Component {
 
     componentDidMount() {
         this.loadRatingsFromServer.bind(this)();
-        //setInterval(this.loadRatingsFromServer.bind(this), this.props.pollInterval);
+        setInterval(this.loadRatingsFromServer.bind(this), this.props.pollInterval);
     }
 
 

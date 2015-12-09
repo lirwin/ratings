@@ -86,9 +86,11 @@ export default class RatingBox extends React.Component {
 
         return (
             <div>
-                <AddBeer url='/api/beers'  />
                 <div className="ratingBox">
                     <h1>My Beer Ratings</h1>
+                    <h3 className="add-beer">Add Beer</h3>
+                    <AddBeer url='/api/beers'  />
+                    <div className="clear"></div>
                     <RatingList data={this.state.data} onRatingSubmit={this.handleRatingSubmit.bind(this)} />
                 </div>
             </div>

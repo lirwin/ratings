@@ -51,7 +51,7 @@ export default class AddBeer extends React.Component {
 
             <MultiSelect
                 ref = "select"
-                placeholder = "Select Beer"
+                placeholder = "Add Beer"
                 options = {this.state.beers}
                 value = {this.state.selectedBeers}
 

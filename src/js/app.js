@@ -38,15 +38,10 @@ class App extends React.Component {
 
     render() {
         return (
-            <div id="main">
-                <Router history={history}>
-                    <Route path="/"
-                           component={RatingBox}
-                           url="/api/ratings"
-                           pollInterval={2000} />
-
-                </Router>
-            </div>
+            <RatingBox   component={RatingBox}
+                         url="/api/ratings"
+                         pollInterval={2000}
+            />
         )
     }
 }

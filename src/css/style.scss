@@ -1,3 +1,15 @@
+@import 'modules/reset';
+@import 'modules/palette';
+@import 'modules/react-selectize';
+
+@import '../js/components/star-list/star-list';
+@import '../js/components/rating/rating';
+@import '../js/components/rating-list/rating-list';
+@import '../js/components/rating-form/rating-form';
+@import '../js/components/rating-box/rating-box';
+@import '../js/components/add-beer/add-beer';
+
+
 body {
   background: #fff;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -55,4 +67,8 @@ p, ul {
 
 ul {
   padding-left: 30px;
+}
+
+.clear {
+  clear: both;
 }

@@ -6,9 +6,9 @@
         "brand": "Happy Hops",
         "image": "images/beer-3.jpg",
         "numStars": "3",
-        "title": "",
-        "text": "",
-        "date": "1449727772974"
+        "title": "Love this Beer!",
+        "text": "Goes down smooth.",
+        "date": "1449733122419"
     },
     {
         "id": "1420070400000",
@@ -16,20 +16,20 @@
         "name": "Rudolph's Revenge",
         "brand": "Happy Hops",
         "image": "images/beer-2.jpg",
-        "numStars": "4",
+        "numStars": "3",
         "title": "",
         "text": "",
-        "date": "1449727770124"
+        "date": "1449733128160"
     },
     {
         "id": "1388534400000",
         "author": "Jane Doe",
-        "name": "Santa's Hooch",
+        "name": "Santa's Slayer Pale Ale",
         "brand": "Happy Hops",
         "image": "images/beer-1.jpg",
         "numStars": "1",
         "title": "",
-        "text": "",
-        "date": "1449727777141"
+        "text": "Tastes like Santa's socks.",
+        "date": "1449733149222"
     }
 ]

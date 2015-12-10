@@ -90,6 +90,37 @@ gulp.task('serve', function() {
         });
     });
 
+    app.post('/api/beers', function(req, res) {
+        fs.readFile(RATINGS_FILE, function(err, data) {
+            if (err) {
+                console.error(err);
+                process.exit(1);
+            }
+            var ratings = JSON.parse(data);
+            // NOTE: In a real implementation, we would likely rely on a database or
+            // some other approach (e.g. UUIDs) to ensure a globally unique id. We'll
+            // treat Date.now() as unique-enough for our purposes.
+            var newRating = {
+                id: Date.now(),
+                name: req.body.name,
+                brand: req.body.brand,
+                beerId: req.body.id,
+                image: req.body.image
+            };
+
+            ratings.push(newRating);
+
+            fs.writeFile(RATINGS_FILE, JSON.stringify(ratings, null, 4), function(err) {
+                if (err) {
+                    console.error(err);
+                    process.exit(1);
+                }
+                res.setHeader('Cache-Control', 'no-cache');
+                res.json(ratings);
+            });
+        });
+    });
+
     app.get('/api/ratings', function(req, res) {
         fs.readFile(RATINGS_FILE, function(err, data) {
             if (err) {

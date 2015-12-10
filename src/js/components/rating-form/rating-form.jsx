@@ -20,8 +20,8 @@ export default class RatingForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        var title = this.state.title.trim();
-        var text = this.state.text.trim();
+        var title = this.state.title && this.state.title.trim();
+        var text = this.state.text && this.state.text.trim();
 
         //this.props.onRatingSubmit({title: title, text: text});
         //this.setState({title: '', text: ''});

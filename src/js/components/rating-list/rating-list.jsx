@@ -4,6 +4,19 @@ import Rating   from '../rating/rating.jsx';
 export default class RatingList extends React.Component {
     render() {
         var onRatingSubmit = this.props.onRatingSubmit;
+
+        var ratingNodes = this.props.data.sort(function(a, b) {
+            if (a.id > b.id) {
+                return -1;
+            }
+            if (a.id < b.id) {
+                return 1;
+            }
+            // a must be equal to b
+            return 0;
+        });
+
+
         var ratingNodes = this.props.data.map(function(rating) {
             return (
                 <Rating key={rating.id}

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactSelectize from 'react-selectize';
 import $ from 'jquery';
 
-var MultiSelect = ReactSelectize.MultiSelect;
+var SimpleSelect = ReactSelectize.SimpleSelect;
 
 export default class AddBeer extends React.Component {
     constructor(props) {
@@ -10,20 +10,40 @@ export default class AddBeer extends React.Component {
 
         this.state = {
             beers: [],
-            selectedBeers: []
+            beer: undefined
         }
     }
 
-    // component-will-mount :: a -> Void
+    addBeerHandler(beer, callback){
+
+        this.setState({beer: beer});
+        callback();
+
+
+        $.ajax({
+            url: '/api/beers',
+            dataType: 'json',
+            type: 'POST',
+            data: beer.value,
+            success: function(data) {
+                console.log('added beer: ' + beer);
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.error(this.props.url, status, err.toString());
+            }.bind(this)
+        });
+
+    }
+
     componentWillMount(){
         var self = this;
+
         this.req = $.get(this.props.url).done(function(beers){
+                var parsedBeers = beers.map(function(beer) {
+                    return({label: beer.name, value: beer});
+                });
 
-            var parsedBeers = beers.map(function(beer){
-                return {label: beer.name, value: beer};
-            });
-
-            self.setState({beers: parsedBeers}, function(){
+                self.setState({beers: parsedBeers}, function(){
                 self.refs.select.highlightFirstSelectableOption();
             });
         }).always(function(){
@@ -31,42 +51,24 @@ export default class AddBeer extends React.Component {
         });
     }
 
-    // render :: a -> ReactElement
     render(){
         var self = this;
         return <div>
-            {function(){
-                if (self.state.selectedBeers.length > 0)
-                    return <div style = {{margin: 8}}>
-                        <span>you selected: </span>
-                        <span style = {{fontWeight: "bold"}}>
-                            {self.state.selectedBeers.map(function(selectedBeer){
-                                return selectedBeer.label;
-                            }).join(", ")}
-                        </span>
-                    </div>
-            }()}
-
-
-
-            <MultiSelect
+            <SimpleSelect
                 ref = "select"
                 placeholder = "Add Beer"
                 options = {this.state.beers}
-                value = {this.state.selectedBeers}
+                value = {this.state.beer}
 
-                // onValueChange :: Item -> (a -> Void) -> void
-                onValuesChange = {function(selectedBeers, callback){
-                    self.setState({selectedBeers: selectedBeers}, callback);
-                }}
+                onValueChange = {this.addBeerHandler.bind(this)}
 
-                // renderNoResultsFound :: a -> ReactElement
                 renderNoResultsFound = {function() {
                     return <div className = "no-results-found">
                         {!!self.req ? "loading beers ..." : "No results found"}
                     </div>
                 }}
                 />
+
         </div>
     }
 }

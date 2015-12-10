@@ -17,9 +17,6 @@ import React            from 'react';
 import ReactDOM           from 'react-dom';
 
 import Reflux           from 'reflux';
-import {default as mix} from 'react-mixin';
-import Router, {Route, DefaultRoute, RouteHandler} from 'react-router';
-import { history } from 'react-router/lib/HashHistory';
 import 'babel/polyfill';
 
 import RatingBox         from './components/rating-box/rating-box.jsx';
